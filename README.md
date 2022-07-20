@@ -87,22 +87,34 @@ Log.d(
 
 // Listen individual pickers or groups for changes
 group.addListener(
-  object : HSLColorPickerSeekBar.DefaultOnColorPickListener() {
-    override fun onColorChanged(
-      picker: ColorSeekBar<IntegerHSLColor>,
-      color: IntegerHSLColor,
-      value: Int
-    ) {
-      Log.d(
-        TAG,
-        "$color picked"
-      )
-      swatchView.setSwatchColor(
-        color
-      )
-    }
-  }
-)
+            object : ColorSeekBar.OnColorPickListener<ColorSeekBar<IntegerHSLColor>, IntegerHSLColor> {
+                override fun onColorChanged(
+                    picker: ColorSeekBar<IntegerHSLColor>,
+                    color: IntegerHSLColor,
+                    value: Int
+                ) {
+                   
+                }
+
+                override fun onColorPicked(
+                    picker: ColorSeekBar<IntegerHSLColor>,
+                    color: IntegerHSLColor,
+                    value: Int,
+                    fromUser: Boolean,
+                ) {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onColorPicking(
+                    picker: ColorSeekBar<IntegerHSLColor>,
+                    color: IntegerHSLColor,
+                    value: Int,
+                    fromUser: Boolean,
+                ) {
+                    TODO("Not yet implemented")
+                }
+            }
+        )
 
 // Set desired color programmatically
 group.setColor(
